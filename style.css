@@ -1,0 +1,1333 @@
+/* =====================================
+   SHRAVANI BIRTHDAY WEBSITE - PREMIUM CSS
+   Cinema, Luxury, Romance, & Magic
+   ===================================== */
+
+/* Root Variables */
+:root {
+    --primary-color: #ff1493;
+    --secondary-color: #ff69b4;
+    --dark-bg: #0a0e27;
+    --light-text: #ffffff;
+    --accent-gold: #ffd700;
+    --accent-purple: #b19cd9;
+    --glass-light: rgba(255, 255, 255, 0.1);
+    --glass-dark: rgba(0, 0, 0, 0.2);
+    --transition-smooth: 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --transition-fast: 0.3s ease-out;
+}
+
+/* ================== RESET & BASE ================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #0a0e27 0%, #1a1a4d 50%, #0d0f2d 100%);
+    color: var(--light-text);
+    line-height: 1.6;
+}
+
+body {
+    background-attachment: fixed;
+}
+
+/* ================== LOADING SCREEN ================== */
+.loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #0a0e27 0%, #1a1a4d 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    animation: fadeOutLoading 0.8s ease-out 3s forwards;
+}
+
+.loading-content {
+    text-align: center;
+}
+
+.loading-stars {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.loading-stars .star {
+    width: 12px;
+    height: 12px;
+    background: radial-gradient(circle, #ffd700, #ffed4e);
+    border-radius: 50%;
+    box-shadow: 0 0 20px #ffd700;
+    animation: twinkleLoad 1.5s ease-in-out infinite;
+}
+
+.loading-stars .star:nth-child(2) { animation-delay: 0.2s; }
+.loading-stars .star:nth-child(3) { animation-delay: 0.4s; }
+.loading-stars .star:nth-child(4) { animation-delay: 0.6s; }
+.loading-stars .star:nth-child(5) { animation-delay: 0.8s; }
+
+.loading-title {
+    font-size: 2.5rem;
+    font-weight: 900;
+    background: linear-gradient(45deg, #ffd700, #ff1493, #ffd700);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 30px;
+    animation: glowPulse 1.5s ease-in-out infinite;
+}
+
+.loading-bar-container {
+    width: 300px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    margin: 20px 0;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+}
+
+.loading-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #ffd700, #ff1493, #ff69b4);
+    border-radius: 10px;
+    animation: loadingBarAnimation 3s ease-in-out forwards;
+    box-shadow: 0 0 20px #ff1493;
+}
+
+.loading-subtext {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-top: 20px;
+    letter-spacing: 1px;
+}
+
+/* ================== MAIN CONTAINER ================== */
+.main-container {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+/* ================== MUSIC CONTROL ================== */
+.music-control {
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    z-index: 100;
+}
+
+.music-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 105, 180, 0.5);
+    color: var(--light-text);
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(10px);
+    transition: all var(--transition-fast);
+    box-shadow: 0 8px 32px rgba(255, 105, 180, 0.2);
+}
+
+.music-btn:hover {
+    background: rgba(255, 105, 180, 0.2);
+    box-shadow: 0 8px 32px rgba(255, 105, 180, 0.4);
+    transform: scale(1.1);
+}
+
+.music-btn:active {
+    transform: scale(0.95);
+}
+
+/* ================== SCENES ================== */
+.scene {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity var(--transition-smooth), visibility var(--transition-smooth);
+    z-index: 1;
+}
+
+.scene.active {
+    opacity: 1;
+    visibility: visible;
+    z-index: 10;
+}
+
+.scene-content {
+    position: relative;
+    z-index: 5;
+    text-align: center;
+    max-width: 90%;
+    animation: fadeInUp 1s ease-out;
+}
+
+canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+}
+
+/* ================== SCENE 1: THE BEGINNING ================== */
+#scene1 {
+    background: linear-gradient(135deg, #0a0e27 0%, #1a0033 50%, #0d0f2d 100%);
+}
+
+.moon {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle at 30% 30%, #ffffff, #e6e6fa, #b19cd9);
+    border-radius: 50%;
+    box-shadow: 
+        0 0 60px rgba(255, 255, 255, 0.4),
+        0 0 100px rgba(177, 156, 217, 0.3),
+        inset -30px -30px 60px rgba(0, 0, 0, 0.2);
+    animation: moonGlow 3s ease-in-out infinite;
+    z-index: 3;
+}
+
+.typewriter-container {
+    margin: 2rem 0;
+}
+
+.typewriter-text {
+    font-size: 1.3rem;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.8);
+    letter-spacing: 2px;
+    min-height: 2.5rem;
+    animation: typewriter 3s steps(60) forwards;
+}
+
+.glowing-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 5rem;
+    font-weight: 900;
+    background: linear-gradient(45deg, #ff1493, #ffd700, #ff69b4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 0 30px rgba(255, 20, 147, 0.5);
+    letter-spacing: 3px;
+    animation: glowTitlePulse 2s ease-in-out infinite;
+    margin: 1rem 0;
+}
+
+.subtitle-fade {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.6);
+    font-weight: 300;
+    letter-spacing: 1px;
+    animation: fadeIn 2s ease-out;
+    margin: 2rem 0;
+}
+
+.heart-button {
+    margin-top: 3rem;
+    padding: 15px 40px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    background: linear-gradient(135deg, rgba(255, 20, 147, 0.3), rgba(255, 105, 180, 0.3));
+    border: 2px solid #ff1493;
+    color: var(--light-text);
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    backdrop-filter: blur(10px);
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 8px 32px rgba(255, 20, 147, 0.2);
+}
+
+.heart-button:hover {
+    background: linear-gradient(135deg, rgba(255, 20, 147, 0.5), rgba(255, 105, 180, 0.5));
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 12px 40px rgba(255, 20, 147, 0.4);
+}
+
+.heart-button:active {
+    transform: translateY(-1px) scale(1);
+}
+
+.heart-icon {
+    font-size: 1.5rem;
+    animation: heartBeat 1s ease-in-out infinite;
+}
+
+/* ================== SCENE 2: THE GIFT ================== */
+#scene2 {
+    background: linear-gradient(135deg, #1a0033 0%, #0d0a2d 50%, #1a1a4d 100%);
+}
+
+.gift-box-wrapper {
+    position: relative;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: giftBoxFloat 3s ease-in-out infinite;
+}
+
+.gift-box {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    perspective: 1000px;
+}
+
+.gift-box-top {
+    position: absolute;
+    width: 200px;
+    height: 100px;
+    background: linear-gradient(135deg, #ff1493, #ff69b4);
+    top: 0;
+    border-radius: 10px 10px 0 0;
+    box-shadow: 0 -5px 20px rgba(255, 20, 147, 0.4);
+    animation: giftBoxOpen 2s ease-out 0.5s forwards;
+    transform-origin: bottom center;
+}
+
+.gift-box-bottom {
+    position: absolute;
+    width: 200px;
+    height: 100px;
+    background: linear-gradient(135deg, #ff69b4, #ff1493);
+    bottom: 0;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 5px 20px rgba(255, 20, 147, 0.3);
+}
+
+.gift-ribbon {
+    position: absolute;
+    width: 20px;
+    height: 200px;
+    background: linear-gradient(90deg, #ffd700, #ffed4e);
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+}
+
+.gift-bow {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background: radial-gradient(circle, #ffd700, #ffed4e);
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.6);
+}
+
+.gift-text-container {
+    margin-top: 60px;
+}
+
+.fade-in-text {
+    font-size: 1.3rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin: 15px 0;
+    animation: fadeInUp 1s ease-out backwards;
+}
+
+.fade-in-text:nth-child(1) { animation-delay: 1.5s; }
+.fade-in-text:nth-child(2) { animation-delay: 2s; }
+.fade-in-text:nth-child(3) { animation-delay: 2.5s; }
+
+/* ================== SCENE 3: CAKE ================== */
+#scene3 {
+    background: linear-gradient(135deg, #0a0e27 0%, #2d1b4e 50%, #0d0f2d 100%);
+}
+
+.cake-container {
+    position: relative;
+    height: 350px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.cake {
+    position: relative;
+    width: 250px;
+    height: 280px;
+    animation: cakeRiseUp 1.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.cake-layer {
+    position: absolute;
+    width: 100%;
+    height: 80px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #ff69b4, #ff1493);
+    box-shadow: 
+        inset 0 2px 5px rgba(255, 255, 255, 0.2),
+        0 10px 30px rgba(255, 20, 147, 0.3);
+}
+
+.cake-layer-1 { bottom: 0; }
+.cake-layer-2 { bottom: 85px; }
+.cake-layer-3 { bottom: 170px; }
+
+.candles-holder {
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 30px;
+    width: 250px;
+    justify-content: center;
+}
+
+.candle {
+    position: relative;
+    width: 12px;
+    height: 60px;
+}
+
+.candle-stick {
+    width: 100%;
+    height: 50px;
+    background: linear-gradient(90deg, #e8d5b7, #d4af37);
+    border-radius: 5px;
+    position: relative;
+    z-index: 4;
+}
+
+.flame {
+    position: absolute;
+    width: 20px;
+    height: 40px;
+    background: radial-gradient(ellipse at center, #ffed4e, #ff8c00, #ff1493);
+    border-radius: 50% 50% 50% 30%;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 0 15px #ff1493;
+    animation: flameFlicker 0.3s ease-in-out infinite;
+    opacity: 0;
+}
+
+.flame.lit {
+    opacity: 1;
+}
+
+.cake-decoration {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.cake-message {
+    margin-top: 40px;
+    animation: fadeInUp 1s ease-out 2s backwards;
+}
+
+.cake-message h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.cake-message p {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin: 5px 0;
+}
+
+/* ================== SCENE 4: BIRTHDAY EXPLOSION ================== */
+#scene4 {
+    background: linear-gradient(135deg, #1a0033 0%, #0d0a2d 50%, #2d1b4e 100%);
+}
+
+.birthday-explosion {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    font-weight: 900;
+    letter-spacing: 8px;
+    color: var(--light-text);
+}
+
+.birthday-explosion .letter {
+    display: inline-block;
+    animation: letterBounce 0.6s ease-in-out infinite;
+    margin: 0 2px;
+}
+
+.birthday-explosion .letter:nth-child(1) { animation-delay: 0s; }
+.birthday-explosion .letter:nth-child(2) { animation-delay: 0.1s; }
+.birthday-explosion .letter:nth-child(3) { animation-delay: 0.2s; }
+.birthday-explosion .letter:nth-child(4) { animation-delay: 0.3s; }
+.birthday-explosion .letter:nth-child(5) { animation-delay: 0.4s; }
+.birthday-explosion .letter:nth-child(6) { animation-delay: 0.5s; }
+.birthday-explosion .letter:nth-child(7) { animation-delay: 0.6s; }
+.birthday-explosion .letter:nth-child(8) { animation-delay: 0.7s; }
+.birthday-explosion .letter:nth-child(9) { animation-delay: 0.8s; }
+.birthday-explosion .letter:nth-child(10) { animation-delay: 0.9s; }
+.birthday-explosion .letter:nth-child(11) { animation-delay: 1s; }
+.birthday-explosion .letter:nth-child(12) { animation-delay: 1.1s; }
+.birthday-explosion .letter:nth-child(13) { animation-delay: 1.2s; }
+.birthday-explosion .letter:nth-child(14) { animation-delay: 1.3s; }
+.birthday-explosion .letter:nth-child(15) { animation-delay: 1.4s; }
+.birthday-explosion .letter:nth-child(16) { animation-delay: 1.5s; }
+.birthday-explosion .letter:nth-child(17) { animation-delay: 1.6s; }
+.birthday-explosion .letter:nth-child(18) { animation-delay: 1.7s; }
+.birthday-explosion .letter:nth-child(19) { animation-delay: 1.8s; }
+.birthday-explosion .letter:nth-child(20) { animation-delay: 1.9s; }
+.birthday-explosion .letter:nth-child(21) { animation-delay: 2s; }
+.birthday-explosion .letter:nth-child(22) { animation-delay: 2.1s; }
+.birthday-explosion .letter:nth-child(23) { animation-delay: 2.2s; }
+.birthday-explosion .letter:nth-child(24) { animation-delay: 2.3s; }
+.birthday-explosion .letter:nth-child(25) { animation-delay: 2.4s; }
+
+/* ================== SCENE 5: LETTER ================== */
+#scene5 {
+    background: linear-gradient(135deg, #0a0e27 0%, #1a0033 50%, #0d0f2d 100%);
+    max-height: 100vh;
+    overflow-y: auto;
+}
+
+.letter-envelope {
+    perspective: 1000px;
+    margin: 40px 0;
+}
+
+.envelope {
+    width: 400px;
+    height: 250px;
+    background: linear-gradient(135deg, #f5e6d3, #e8d5b7);
+    border-radius: 10px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+    position: relative;
+    margin: 0 auto 30px;
+    animation: envelopeOpen 1.5s ease-out forwards;
+}
+
+.envelope-flap {
+    position: absolute;
+    width: 100%;
+    height: 50%;
+    background: linear-gradient(135deg, #d4a574, #c9956e);
+    border-radius: 10px 10px 0 0;
+    transform-origin: top center;
+    animation: flapOpen 1s ease-out 0.5s forwards;
+}
+
+.envelope-body {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 2px solid #d4a574;
+    border-radius: 10px;
+}
+
+.letter-content {
+    opacity: 0;
+    animation: fadeIn 1s ease-out 1.5s forwards;
+}
+
+.letter-paper {
+    background: linear-gradient(135deg, #faf8f3, #f5e6d3);
+    border-radius: 5px;
+    padding: 40px;
+    max-width: 500px;
+    margin: 0 auto;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    max-height: 60vh;
+    overflow-y: auto;
+}
+
+.letter-text {
+    text-align: left;
+}
+
+.letter-line {
+    color: #4a4a4a;
+    font-size: 1rem;
+    margin: 12px 0;
+    font-family: 'Cormorant Garamond', serif;
+    line-height: 1.8;
+    animation: letterTyping 0.05s ease-out forwards;
+}
+
+.letter-line:nth-child(1) { animation-delay: 0s; }
+.letter-line:nth-child(2) { animation-delay: 0.1s; }
+.letter-line:nth-child(3) { animation-delay: 0.2s; }
+.letter-line:nth-child(4) { animation-delay: 0.3s; }
+.letter-line:nth-child(5) { animation-delay: 0.4s; }
+.letter-line:nth-child(6) { animation-delay: 0.5s; }
+.letter-line:nth-child(7) { animation-delay: 0.6s; }
+.letter-line:nth-child(8) { animation-delay: 0.7s; }
+.letter-line:nth-child(9) { animation-delay: 0.8s; }
+.letter-line:nth-child(10) { animation-delay: 0.9s; }
+.letter-line:nth-child(11) { animation-delay: 1s; }
+.letter-line:nth-child(12) { animation-delay: 1.1s; }
+.letter-line:nth-child(13) { animation-delay: 1.2s; }
+.letter-line:nth-child(14) { animation-delay: 1.3s; }
+.letter-line:nth-child(15) { animation-delay: 1.4s; }
+.letter-line:nth-child(16) { animation-delay: 1.5s; }
+.letter-line:nth-child(17) { animation-delay: 1.6s; }
+.letter-line:nth-child(18) { animation-delay: 1.7s; }
+.letter-line:nth-child(19) { animation-delay: 1.8s; }
+.letter-line:nth-child(20) { animation-delay: 1.9s; }
+.letter-line:nth-child(21) { animation-delay: 2s; }
+.letter-line:nth-child(22) { animation-delay: 2.1s; }
+
+/* ================== SCENE 6: PHOTO GALLERY ================== */
+#scene6 {
+    background: linear-gradient(135deg, #1a0033 0%, #0d0a2d 50%, #1a1a4d 100%);
+    overflow-y: auto;
+}
+
+.scene-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    background: linear-gradient(45deg, #ffd700, #ff69b4, #ffd700);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 40px;
+    animation: fadeInDown 1s ease-out;
+}
+
+.photo-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    padding: 20px;
+    max-width: 1000px;
+    margin: 0 auto 40px;
+}
+
+.photo-item {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1;
+    border-radius: 15px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+    box-shadow: 0 15px 40px rgba(255, 20, 147, 0.2);
+    animation: photoSlideIn 0.6s ease-out backwards;
+}
+
+.photo-item:nth-child(1) { animation-delay: 0s; }
+.photo-item:nth-child(2) { animation-delay: 0.1s; }
+.photo-item:nth-child(3) { animation-delay: 0.2s; }
+.photo-item:nth-child(4) { animation-delay: 0.3s; }
+.photo-item:nth-child(5) { animation-delay: 0.4s; }
+.photo-item:nth-child(6) { animation-delay: 0.5s; }
+
+.photo-item:hover {
+    transform: translateY(-15px) scale(1.05);
+    box-shadow: 0 20px 50px rgba(255, 20, 147, 0.4);
+}
+
+.photo-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.photo-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255, 20, 147, 0.4), rgba(255, 105, 180, 0.4));
+    opacity: 0;
+    transition: opacity var(--transition-fast);
+}
+
+.photo-item:hover .photo-overlay {
+    opacity: 1;
+}
+
+/* Lightbox */
+.lightbox-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(5px);
+    animation: fadeIn var(--transition-fast);
+}
+
+.lightbox-modal.active {
+    display: flex;
+}
+
+.lightbox-content {
+    position: relative;
+    max-width: 90vw;
+    max-height: 90vh;
+}
+
+.lightbox-content img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 15px;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid var(--light-text);
+    color: var(--light-text);
+    font-size: 1.5rem;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.lightbox-close:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
+}
+
+.lightbox-prev, .lightbox-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid var(--light-text);
+    color: var(--light-text);
+    font-size: 1.5rem;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.lightbox-prev {
+    left: 20px;
+}
+
+.lightbox-next {
+    right: 20px;
+}
+
+.lightbox-prev:hover, .lightbox-next:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-50%) scale(1.1);
+}
+
+/* ================== SCENE 7: QUALITIES ================== */
+#scene7 {
+    background: linear-gradient(135deg, #0a0e27 0%, #2d1b4e 50%, #1a1a4d 100%);
+    overflow-y: auto;
+}
+
+.qualities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    max-width: 1000px;
+    margin: 0 auto 40px;
+}
+
+.quality-card {
+    background: linear-gradient(135deg, rgba(255, 20, 147, 0.1), rgba(255, 105, 180, 0.1));
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 105, 180, 0.3);
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+    transition: all var(--transition-fast);
+    cursor: pointer;
+    animation: cardSlideIn 0.6s ease-out backwards;
+}
+
+.quality-card:nth-child(1) { animation-delay: 0s; }
+.quality-card:nth-child(2) { animation-delay: 0.1s; }
+.quality-card:nth-child(3) { animation-delay: 0.2s; }
+.quality-card:nth-child(4) { animation-delay: 0.3s; }
+.quality-card:nth-child(5) { animation-delay: 0.4s; }
+.quality-card:nth-child(6) { animation-delay: 0.5s; }
+.quality-card:nth-child(7) { animation-delay: 0.6s; }
+.quality-card:nth-child(8) { animation-delay: 0.7s; }
+.quality-card:nth-child(9) { animation-delay: 0.8s; }
+.quality-card:nth-child(10) { animation-delay: 0.9s; }
+
+.quality-card:hover {
+    background: linear-gradient(135deg, rgba(255, 20, 147, 0.25), rgba(255, 105, 180, 0.25));
+    border-color: rgba(255, 105, 180, 0.6);
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(255, 20, 147, 0.3);
+}
+
+.quality-icon {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.quality-text {
+    font-size: 1rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* ================== SCENE 8: BIRTHDAY SKY ================== */
+#scene8 {
+    background: linear-gradient(135deg, #0a0e27 0%, #1a0033 50%, #0d0f2d 100%);
+}
+
+.sky-message {
+    position: relative;
+    z-index: 3;
+}
+
+.sky-text {
+    font-size: 2rem;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.8);
+    letter-spacing: 2px;
+    animation: fadeInUp 1.5s ease-out;
+    max-width: 600px;
+    line-height: 1.8;
+}
+
+/* ================== SCENE 9: FINAL SURPRISE ================== */
+#scene9 {
+    background: linear-gradient(135deg, #1a0033 0%, #0d0a2d 50%, #2d1b4e 100%);
+    overflow-y: auto;
+}
+
+.final-message {
+    position: relative;
+    z-index: 3;
+    max-width: 700px;
+    animation: fadeInUp 1s ease-out;
+}
+
+.final-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    font-weight: 900;
+    background: linear-gradient(45deg, #ff1493, #ffd700, #ff69b4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 30px;
+    letter-spacing: 2px;
+}
+
+.final-text {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: 30px;
+    line-height: 2;
+    letter-spacing: 0.5px;
+}
+
+.final-text p {
+    margin: 10px 0;
+}
+
+.final-quote {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.7);
+    font-style: italic;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 2px solid rgba(255, 105, 180, 0.3);
+}
+
+.final-quote p {
+    margin: 8px 0;
+}
+
+/* ================== BUTTONS ================== */
+.scene-button {
+    margin-top: 30px;
+    padding: 12px 35px;
+    font-size: 1rem;
+    font-weight: 600;
+    background: linear-gradient(135deg, rgba(255, 20, 147, 0.2), rgba(255, 105, 180, 0.2));
+    border: 2px solid rgba(255, 105, 180, 0.6);
+    color: var(--light-text);
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px rgba(255, 20, 147, 0.15);
+}
+
+.scene-button:hover {
+    background: linear-gradient(135deg, rgba(255, 20, 147, 0.4), rgba(255, 105, 180, 0.4));
+    border-color: rgba(255, 105, 180, 0.9);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(255, 20, 147, 0.3);
+}
+
+.scene-button:active {
+    transform: translateY(0);
+}
+
+.restart-btn {
+    margin-top: 50px;
+}
+
+/* ================== ANIMATIONS ================== */
+@keyframes fadeOutLoading {
+    from {
+        opacity: 1;
+        visibility: visible;
+    }
+    to {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+@keyframes loadingBarAnimation {
+    from {
+        width: 0%;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes twinkleLoad {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.3;
+    }
+}
+
+@keyframes glowPulse {
+    0%, 100% {
+        text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+    }
+    50% {
+        text-shadow: 0 0 40px rgba(255, 20, 147, 0.8);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes typewriter {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes moonGlow {
+    0%, 100% {
+        box-shadow: 
+            0 0 60px rgba(255, 255, 255, 0.4),
+            0 0 100px rgba(177, 156, 217, 0.3),
+            inset -30px -30px 60px rgba(0, 0, 0, 0.2);
+    }
+    50% {
+        box-shadow: 
+            0 0 80px rgba(255, 255, 255, 0.6),
+            0 0 120px rgba(177, 156, 217, 0.5),
+            inset -30px -30px 60px rgba(0, 0, 0, 0.2);
+    }
+}
+
+@keyframes glowTitlePulse {
+    0%, 100% {
+        text-shadow: 0 0 30px rgba(255, 20, 147, 0.5);
+    }
+    50% {
+        text-shadow: 0 0 50px rgba(255, 20, 147, 0.8);
+    }
+}
+
+@keyframes heartBeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+@keyframes giftBoxFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes giftBoxOpen {
+    from {
+        transform: rotateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: rotateX(-90deg) translateY(-30px);
+        opacity: 0.3;
+    }
+}
+
+@keyframes cakeRiseUp {
+    from {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes flameFlicker {
+    0%, 100% {
+        transform: scaleY(1) scaleX(1);
+    }
+    50% {
+        transform: scaleY(1.1) scaleX(0.95);
+    }
+}
+
+@keyframes letterBounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+@keyframes envelopeOpen {
+    from {
+        transform: perspective(1000px) rotateY(-10deg) scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: perspective(1000px) rotateY(0) scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes flapOpen {
+    from {
+        transform: rotateX(0);
+    }
+    to {
+        transform: rotateX(-180deg);
+    }
+}
+
+@keyframes letterTyping {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes photoSlideIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes cardSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ================== RESPONSIVE DESIGN ================== */
+@media (max-width: 768px) {
+    .glowing-title {
+        font-size: 3rem;
+        letter-spacing: 1px;
+    }
+    
+    .birthday-explosion {
+        font-size: 2rem;
+        letter-spacing: 3px;
+    }
+    
+    .moon {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .typewriter-text {
+        font-size: 1rem;
+    }
+    
+    .photo-gallery {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 15px;
+    }
+    
+    .qualities-grid {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        gap: 10px;
+    }
+    
+    .quality-card {
+        padding: 15px;
+    }
+    
+    .quality-icon {
+        font-size: 1.8rem;
+    }
+    
+    .quality-text {
+        font-size: 0.85rem;
+    }
+    
+    .sky-text {
+        font-size: 1.3rem;
+    }
+    
+    .final-title {
+        font-size: 2rem;
+    }
+    
+    .final-text {
+        font-size: 0.95rem;
+    }
+    
+    .letter-paper {
+        padding: 25px;
+    }
+    
+    .letter-line {
+        font-size: 0.9rem;
+    }
+    
+    .music-btn {
+        width: 45px;
+        height: 45px;
+        top: 15px;
+        right: 15px;
+    }
+    
+    .envelope {
+        width: 300px;
+        height: 200px;
+    }
+    
+    .cake {
+        width: 180px;
+        height: 200px;
+    }
+    
+    .cake-layer {
+        height: 60px;
+    }
+    
+    .cake-layer-1 { bottom: 0; }
+    .cake-layer-2 { bottom: 65px; }
+    .cake-layer-3 { bottom: 130px; }
+}
+
+@media (max-width: 480px) {
+    .glowing-title {
+        font-size: 2rem;
+    }
+    
+    .birthday-explosion {
+        font-size: 1.5rem;
+        letter-spacing: 1px;
+    }
+    
+    .moon {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .typewriter-text {
+        font-size: 0.9rem;
+    }
+    
+    .subtitle-fade {
+        font-size: 1rem;
+    }
+    
+    .heart-button {
+        padding: 10px 25px;
+        font-size: 0.9rem;
+    }
+    
+    .scene-button {
+        padding: 10px 25px;
+        font-size: 0.9rem;
+    }
+    
+    .final-title {
+        font-size: 1.5rem;
+    }
+    
+    .final-text {
+        font-size: 0.85rem;
+    }
+    
+    .sky-text {
+        font-size: 1rem;
+    }
+    
+    .scene-title {
+        font-size: 1.8rem;
+    }
+    
+    .letter-paper {
+        padding: 15px;
+        max-width: 95%;
+    }
+    
+    .letter-line {
+        font-size: 0.8rem;
+    }
+    
+    .photo-gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .qualities-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .quality-icon {
+        font-size: 1.5rem;
+    }
+    
+    .envelope {
+        width: 250px;
+        height: 160px;
+    }
+    
+    .cake {
+        width: 150px;
+        height: 180px;
+    }
+    
+    .cake-layer {
+        height: 50px;
+    }
+    
+    .cake-layer-1 { bottom: 0; }
+    .cake-layer-2 { bottom: 55px; }
+    .cake-layer-3 { bottom: 110px; }
+    
+    .candles-holder {
+        gap: 20px;
+    }
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 105, 180, 0.3);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 105, 180, 0.5);
+}
