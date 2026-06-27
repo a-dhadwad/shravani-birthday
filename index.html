@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A cinematic romantic birthday surprise for Shravani">
+    <meta name="theme-color" content="#0a0e27">
+    
+    <title>✨ Happy Birthday Shravani ✨</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Poppins:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Cinematic Loading Screen -->
+    <div id="loadingScreen" class="loading-screen">
+        <div class="loading-content">
+            <div class="loading-stars">
+                <div class="star"></div>
+                <div class="star"></div>
+                <div class="star"></div>
+                <div class="star"></div>
+                <div class="star"></div>
+            </div>
+            <div class="loading-text">
+                <div class="loading-title">✨ Loading Magic ✨</div>
+                <div class="loading-bar-container">
+                    <div class="loading-bar"></div>
+                </div>
+                <div class="loading-subtext">Preparing a cinematic surprise...</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Container -->
+    <div id="mainContainer" class="main-container">
+        <!-- Music Control -->
+        <div class="music-control">
+            <button id="musicToggle" class="music-btn" title="Toggle Music">
+                <span class="music-icon">🔊</span>
+            </button>
+            <audio id="backgroundMusic" loop preload="auto">
+                <source src="assets/music/romantic-piano.mp3" type="audio/mpeg">
+            </audio>
+        </div>
+
+        <!-- Scene 1: The Beginning -->
+        <section id="scene1" class="scene active">
+            <canvas id="starsCanvas"></canvas>
+            <div class="scene-content">
+                <div class="moon"></div>
+                <div class="typewriter-container">
+                    <p class="typewriter-text" data-text="Sometimes... one person can make an ordinary world feel magical."></p>
+                </div>
+                <div class="typewriter-container" style="margin-top: 3rem;">
+                    <p class="typewriter-text" data-text="Today is about that one person..."></p>
+                </div>
+                <h1 class="glowing-title">✨ Shravani ✨</h1>
+                <p class="subtitle-fade">This little surprise is made only for you.</p>
+                <button class="heart-button" id="openHeartBtn">
+                    <span class="heart-icon">❤️</span>
+                    <span class="button-text">Open My Heart</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- Scene 2: The Secret Gift -->
+        <section id="scene2" class="scene">
+            <canvas id="butterfliesCanvas"></canvas>
+            <div class="scene-content">
+                <div class="gift-box-wrapper">
+                    <div class="gift-box">
+                        <div class="gift-box-top"></div>
+                        <div class="gift-box-bottom"></div>
+                        <div class="gift-ribbon"></div>
+                        <div class="gift-bow"></div>
+                    </div>
+                </div>
+                <div class="gift-text-container">
+                    <p class="fade-in-text">Today isn't just another day.</p>
+                    <p class="fade-in-text">Today is the day someone incredibly precious came into this world.</p>
+                    <p class="fade-in-text">And I couldn't let this day pass without making something special for you.</p>
+                </div>
+                <button class="scene-button" id="continueBtn">
+                    ✨ Continue
+                </button>
+            </div>
+        </section>
+
+        <!-- Scene 3: Birthday Cake -->
+        <section id="scene3" class="scene">
+            <canvas id="candleFireCanvas"></canvas>
+            <div class="scene-content">
+                <div class="cake-container">
+                    <div class="cake">
+                        <div class="cake-layer cake-layer-1"></div>
+                        <div class="cake-layer cake-layer-2"></div>
+                        <div class="cake-layer cake-layer-3"></div>
+                        <div class="candles-holder">
+                            <div class="candle">
+                                <div class="candle-stick"></div>
+                                <div class="flame"></div>
+                            </div>
+                            <div class="candle">
+                                <div class="candle-stick"></div>
+                                <div class="flame"></div>
+                            </div>
+                            <div class="candle">
+                                <div class="candle-stick"></div>
+                                <div class="flame"></div>
+                            </div>
+                            <div class="candle">
+                                <div class="candle-stick"></div>
+                                <div class="flame"></div>
+                            </div>
+                            <div class="candle">
+                                <div class="candle-stick"></div>
+                                <div class="flame"></div>
+                            </div>
+                        </div>
+                        <div class="cake-decoration"></div>
+                    </div>
+                </div>
+                <div class="cake-message">
+                    <h2>💖</h2>
+                    <p>Madam Ji...</p>
+                    <p>Before anything else...</p>
+                    <p>Please make a wish...</p>
+                    <p>And blow the candles...</p>
+                </div>
+                <button class="scene-button" id="blowCandlesBtn">
+                    💨 Blow the Candles
+                </button>
+            </div>
+        </section>
+
+        <!-- Scene 4: Happy Birthday Explosion -->
+        <section id="scene4" class="scene">
+            <canvas id="fireworksCanvas"></canvas>
+            <canvas id="confettiCanvas"></canvas>
+            <div class="scene-content">
+                <h1 class="birthday-explosion">
+                    <span class="letter">🎉</span>
+                    <span class="letter">H</span>
+                    <span class="letter">A</span>
+                    <span class="letter">P</span>
+                    <span class="letter">P</span>
+                    <span class="letter">Y</span>
+                    <span class="letter"> </span>
+                    <span class="letter">B</span>
+                    <span class="letter">I</span>
+                    <span class="letter">R</span>
+                    <span class="letter">T</span>
+                    <span class="letter">H</span>
+                    <span class="letter">D</span>
+                    <span class="letter">A</span>
+                    <span class="letter">Y</span>
+                    <span class="letter"> </span>
+                    <span class="letter">S</span>
+                    <span class="letter">H</span>
+                    <span class="letter">R</span>
+                    <span class="letter">A</span>
+                    <span class="letter">V</span>
+                    <span class="letter">A</span>
+                    <span class="letter">N</span>
+                    <span class="letter">I</span>
+                    <span class="letter">🎉</span>
+                </h1>
+                <button class="scene-button" id="readLetterBtn">
+                    💌 Read My Letter
+                </button>
+            </div>
+        </section>
+
+        <!-- Scene 5: Love Letter -->
+        <section id="scene5" class="scene">
+            <div class="scene-content">
+                <div class="letter-envelope">
+                    <div class="envelope">
+                        <div class="envelope-flap"></div>
+                        <div class="envelope-body"></div>
+                    </div>
+                    <div class="letter-content">
+                        <div class="letter-paper">
+                            <div class="letter-text">
+                                <p class="letter-line"><strong>Dear Shravani,</strong> ❤️</p>
+                                <p class="letter-line">Happy Birthday.</p>
+                                <p class="letter-line">There are thousands of beautiful people in this world.</p>
+                                <p class="letter-line">But somehow...</p>
+                                <p class="letter-line">my heart chose to stop for you.</p>
+                                
+                                <p class="letter-line">I don't know what tomorrow will bring.</p>
+                                <p class="letter-line">But today, I simply want you to know one thing.</p>
+                                
+                                <p class="letter-line">You are someone who brings light wherever you go.</p>
+                                <p class="letter-line">Your smile has a way of making everything around you feel warmer.</p>
+                                <p class="letter-line">Your laughter feels like my favorite song.</p>
+                                <p class="letter-line">Even the smallest conversations with you become memories worth keeping.</p>
+                                
+                                <p class="letter-line">If I could give you every star in the sky, I would.</p>
+                                <p class="letter-line">If I could pause today forever, I would.</p>
+                                <p class="letter-line">Because today celebrates someone truly special.</p>
+                                
+                                <p class="letter-line">I hope this year gives you happiness that never fades, dreams that come true, countless reasons to smile, and moments that make your heart feel full.</p>
+                                
+                                <p class="letter-line">No matter where life takes us...</p>
+                                <p class="letter-line">Whenever you smile...</p>
+                                <p class="letter-line">I hope a tiny part of that smile is because of this little surprise.</p>
+                                
+                                <p class="letter-line">Happy Birthday once again, Shravani.</p>
+                                <p class="letter-line">Keep shining.</p>
+                                <p class="letter-line">Keep smiling.</p>
+                                <p class="letter-line">Because this world genuinely becomes brighter when you do.</p>
+                                
+                                <p class="letter-line">❤️</p>
+                                
+                                <p class="letter-line">With all my best wishes,</p>
+                                <p class="letter-line"><strong>— Someone who will always smile when he hears your name.</strong></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="scene-button" id="viewPhotosBtn">
+                    📸 View Our Memories
+                </button>
+            </div>
+        </section>
+
+        <!-- Scene 6: Photo Gallery -->
+        <section id="scene6" class="scene">
+            <div class="scene-content">
+                <h2 class="scene-title">Our Beautiful Memories</h2>
+                <div class="photo-gallery">
+                    <div class="photo-item">
+                        <div class="photo-placeholder">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Crect fill='%231a1a2e' width='300' height='300'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' fill='%23666' font-size='24' font-family='Arial'%3EMemory 1%3C/text%3E%3C/svg%3E" alt="Memory 1">
+                        </div>
+                        <div class="photo-overlay"></div>
+                    </div>
+                    <div class="photo-item">
+                        <div class="photo-placeholder">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Crect fill='%231a1a2e' width='300' height='300'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' fill='%23666' font-size='24' font-family='Arial'%3EMemory 2%3C/text%3E%3C/svg%3E" alt="Memory 2">
+                        </div>
+                        <div class="photo-overlay"></div>
+                    </div>
+                    <div class="photo-item">
+                        <div class="photo-placeholder">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Crect fill='%231a1a2e' width='300' height='300'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' fill='%23666' font-size='24' font-family='Arial'%3EMemory 3%3C/text%3E%3C/svg%3E" alt="Memory 3">
+                        </div>
+                        <div class="photo-overlay"></div>
+                    </div>
+                    <div class="photo-item">
+                        <div class="photo-placeholder">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Crect fill='%231a1a2e' width='300' height='300'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' fill='%23666' font-size='24' font-family='Arial'%3EMemory 4%3C/text%3E%3C/svg%3E" alt="Memory 4">
+                        </div>
+                        <div class="photo-overlay"></div>
+                    </div>
+                    <div class="photo-item">
+                        <div class="photo-placeholder">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Crect fill='%231a1a2e' width='300' height='300'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' fill='%23666' font-size='24' font-family='Arial'%3EMemory 5%3C/text%3E%3C/svg%3E" alt="Memory 5">
+                        </div>
+                        <div class="photo-overlay"></div>
+                    </div>
+                    <div class="photo-item">
+                        <div class="photo-placeholder">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Crect fill='%231a1a2e' width='300' height='300'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' fill='%23666' font-size='24' font-family='Arial'%3EMemory 6%3C/text%3E%3C/svg%3E" alt="Memory 6">
+                        </div>
+                        <div class="photo-overlay"></div>
+                    </div>
+                </div>
+
+                <!-- Lightbox Modal -->
+                <div id="lightboxModal" class="lightbox-modal">
+                    <div class="lightbox-content">
+                        <button class="lightbox-close">&times;</button>
+                        <img id="lightboxImage" src="" alt="">
+                        <button class="lightbox-prev">❮</button>
+                        <button class="lightbox-next">❯</button>
+                    </div>
+                </div>
+
+                <button class="scene-button" id="viewQualitiesBtn">
+                    ❤️ Things I Love About You
+                </button>
+            </div>
+        </section>
+
+        <!-- Scene 7: Qualities -->
+        <section id="scene7" class="scene">
+            <div class="scene-content">
+                <h2 class="scene-title">Little Things I Love About You</h2>
+                <div class="qualities-grid">
+                    <div class="quality-card">
+                        <div class="quality-icon">😊</div>
+                        <div class="quality-text">Your Smile</div>
+                    </div>
+                    <div class="quality-card">
+                        <div class="quality-icon">💝</div>
+                        <div class="quality-text">Your Kindness</div>
+                    </div>
+                    <div class="quality-card">
+                        <div class="quality-icon">💖</div>
+                        <div class="quality-text">Your Beautiful Heart</div>
+                    </div>
+                    <div class="quality-card">
+                        <div class="quality-icon">😄</div>
+                        <div class="quality-text">Your Laugh</div>
+                    </div>
+                    <div class="quality-card">
+                        <div class="quality-icon">💪</div>
+                        <div class="quality-text">Your Confidence</div>
+                    </div>
+                    <div class="quality-card">
+                        <div class="quality-icon">✨</div>
+                        <div class="quality-text">Your Eyes</div>
+                    </div>
+                    <div class="quality-card">
+                        <div class="quality-icon">🤗</div>
+                        <div class="quality-text">Your Caring Nature</div>
+                    </div>
+                    <div class="quality-card">
+                        <div class="quality-icon">🌟</div>
+                        <div class="quality-text">Your Happiness</div>
+                    </div>
+                    <div class="quality-card">
+                        <div class="quality-icon">👼</div>
+                        <div class="quality-text">Your Innocence</div>
+                    </div>
+                    <div class="quality-card">
+                        <div class="quality-icon">💫</div>
+                        <div class="quality-text">Simply... You</div>
+                    </div>
+                </div>
+                <button class="scene-button" id="viewSkyBtn">
+                    🌌 See the Birthday Sky
+                </button>
+            </div>
+        </section>
+
+        <!-- Scene 8: Birthday Sky -->
+        <section id="scene8" class="scene">
+            <canvas id="galaxyCanvas"></canvas>
+            <div class="scene-content">
+                <div class="sky-message">
+                    <p class="sky-text">Every star in this sky shines tonight... because it's your birthday.</p>
+                </div>
+                <button class="scene-button" id="finalSurpriseBtn">
+                    ✨ Final Surprise
+                </button>
+            </div>
+        </section>
+
+        <!-- Scene 9: Final Surprise -->
+        <section id="scene9" class="scene">
+            <canvas id="finalHeartRainCanvas"></canvas>
+            <canvas id="finalFireworksCanvas"></canvas>
+            <div class="scene-content">
+                <div class="final-message">
+                    <h1 class="final-title">Happy Birthday, Shravani ❤️</h1>
+                    <div class="final-text">
+                        <p>"I don't know what the future holds...</p>
+                        <p>But I'll always wish that your life is filled with happiness, peace, success, and endless smiles.</p>
+                        <p>May every birthday remind you how loved and appreciated you are.</p>
+                        <p>Thank you for existing.</p>
+                        <p>Thank you for being you.</p>
+                        <p>And thank you for making this world a little more beautiful.</p>
+                        <p>Happy Birthday, Madam Ji. ❤️"</p>
+                    </div>
+                    <div class="final-quote">
+                        <p>"Some surprises last for a moment...</p>
+                        <p>But some memories stay in the heart forever."</p>
+                        <p style="margin-top: 1rem; font-size: 1.3rem;">✨ Happy Birthday, Shravani. ✨</p>
+                    </div>
+                </div>
+                <button class="scene-button restart-btn" id="restartBtn">
+                    🔄 Start Over
+                </button>
+            </div>
+        </section>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
