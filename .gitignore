@@ -1,0 +1,25 @@
+# Yarn
+node_modules/
+yarn-error.log
+
+# npm
+node_modules/
+npm-debug.log
+
+# DS Store
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Environment
+.env
+.env.local
+
+# Build
+dist/
+build/
